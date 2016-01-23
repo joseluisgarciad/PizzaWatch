@@ -1,39 +1,155 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14A389" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Pizza.png-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="220" y="345"/>
-        </scene>
-        <!--Static Notification Interface Controller-->
-        <scene sceneID="AEw-b0-oYE">
-            <objects>
-                <notificationController id="YCC-NB-fut">
+                <controller backgroundImage="Pizza.png" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PizzaWatch_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                        <separator alignment="left" id="AbF-yS-DvG"/>
+                        <label width="133.5" alignment="left" text="PIZZA PRONTO" textAlignment="center" id="gD6-lc-K7d">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <separator alignment="left" id="iQI-m2-P0L"/>
+                        <label width="1" height="60.5" alignment="left" text="Ahora podrá configurar su pizza" textAlignment="center" numberOfLines="3" id="Zsp-TE-WsH">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                        <separator alignment="left" id="Is8-4F-LdB"/>
+                        <button width="1" alignment="left" title="Comenzar" id="0aY-IQ-Zwi">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="fsL-WI-NYq" kind="push" id="joU-Y5-Z92"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="Xx1-j7-lNL"/>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
-                    <connections>
-                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
-                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
-                    </connections>
-                </notificationController>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="107" y="285"/>
         </scene>
-        <!--Notification Controller-->
-        <scene sceneID="ZPc-GJ-vnh">
+        <!--Pizza.png-->
+        <scene sceneID="uSJ-a0-dHA">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller backgroundImage="Pizza.png" id="fsL-WI-NYq" customClass="VistaTamano" customModule="PizzaWatch_WatchKit_Extension">
+                    <items>
+                        <label width="1" height="17.5" alignment="left" text="Tamaño" textAlignment="center" id="Bn9-rp-dtY">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                        <picker height="100" alignment="left" alpha="0.45000000000000001" indicatorMode="shownWhileFocused" id="kkS-a0-Yh7">
+                            <connections>
+                                <action selector="pickerChanged:" destination="fsL-WI-NYq" id="roN-fz-zZv"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="left" title="Continuar" id="GQC-N7-B6y">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="ButtonContinuar" destination="fsL-WI-NYq" id="GAa-Kj-XCO"/>
+                                <segue destination="A5e-kP-9El" kind="push" id="goe-5G-Sgj"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="Boton" destination="GQC-N7-B6y" id="vYi-iW-XGp"/>
+                        <outlet property="Etiqueta" destination="Bn9-rp-dtY" id="B88-fE-SsS"/>
+                        <outlet property="PickerTamano" destination="kkS-a0-Yh7" id="vSw-In-wZs"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="348" y="285"/>
+        </scene>
+        <!--Vista Masa-->
+        <scene sceneID="RCd-lf-LUM">
+            <objects>
+                <controller id="A5e-kP-9El" customClass="VistaMasa" customModule="PizzaWatch_WatchKit_Extension">
+                    <items>
+                        <label width="1" height="17.5" alignment="left" text="Tipo de Masa" textAlignment="center" id="XcF-lH-Jmo"/>
+                        <picker height="100" alignment="left" id="gJ0-Dw-5Ya"/>
+                        <button width="1" alignment="left" title="Continuar" id="iTL-GA-aVT">
+                            <connections>
+                                <segue destination="Rf8-gj-dge" kind="push" id="eDk-A7-V0f"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="95" y="604"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="ibv-Lp-B90">
+            <objects>
+                <controller id="suo-yh-C5u">
+                    <items>
+                        <label width="1" alignment="left" text="Confirmación" textAlignment="center" id="iE0-Jc-mWL"/>
+                        <separator alignment="left" id="ggT-bI-foD"/>
+                        <label width="1" alignment="left" text="Label" id="NPI-JW-ClP"/>
+                        <label width="1" alignment="left" text="Label" id="bR8-Ns-KZG"/>
+                        <label width="1" alignment="left" text="Label" id="wws-Ll-KEo"/>
+                        <label width="1" alignment="left" text="Label" id="0d3-BC-M3L"/>
+                        <button width="1" alignment="left" title="Button" id="ome-ka-WC6">
+                            <connections>
+                                <segue destination="zox-tR-HFm" kind="push" id="djG-j1-tt8"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="95" y="838"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="C6s-XU-anH">
+            <objects>
+                <controller id="zox-tR-HFm">
+                    <items>
+                        <label width="1" height="1" alignment="left" text="PIZZA EN EN HORNO" textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="2" id="tb9-N5-412"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="307" y="835"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="FHO-pP-cuS">
+            <objects>
+                <controller id="Rf8-gj-dge">
+                    <items>
+                        <label width="1" height="17.5" alignment="left" text="Tipo de queso" textAlignment="center" id="kY3-dX-jjV"/>
+                        <picker height="100" alignment="left" id="1NC-k5-qry"/>
+                        <button width="1" alignment="left" title="Continuar" id="Hpf-yv-Aoi">
+                            <connections>
+                                <segue destination="8ee-Lm-q11" kind="push" id="IWh-8J-B63"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="304" y="603"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="8DJ-LL-OcY">
+            <objects>
+                <controller id="8ee-Lm-q11">
+                    <items>
+                        <label width="1" height="17.5" alignment="left" text="Tipo de queso" textAlignment="center" id="3Mg-1n-OZG"/>
+                        <table alignment="left" id="CX7-nD-lJa">
+                            <items>
+                                <tableRow id="0vP-56-IwJ">
+                                    <group key="rootItem" width="1" alignment="left" id="qzJ-p9-eYX"/>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="1" alignment="left" title="Continuar" id="7JU-Hf-MFP">
+                            <connections>
+                                <segue destination="suo-yh-C5u" kind="push" id="azx-gQ-Z5m"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="500" y="600"/>
         </scene>
     </scenes>
 </document>
