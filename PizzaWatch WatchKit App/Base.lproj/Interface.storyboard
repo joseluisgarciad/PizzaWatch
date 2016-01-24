@@ -5,51 +5,50 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
-        <!--Pizza.png-->
+        <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller backgroundImage="Pizza.png" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PizzaWatch_WatchKit_App" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PizzaWatch_WatchKit_App" customModuleProvider="target">
                     <items>
                         <separator alignment="left" id="AbF-yS-DvG"/>
                         <label width="133.5" alignment="left" text="PIZZA PRONTO" textAlignment="center" id="gD6-lc-K7d">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                         </label>
                         <separator alignment="left" id="iQI-m2-P0L"/>
                         <label width="1" height="60.5" alignment="left" text="Ahora podrá configurar su pizza" textAlignment="center" numberOfLines="3" id="Zsp-TE-WsH">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
                         <separator alignment="left" id="Is8-4F-LdB"/>
                         <button width="1" alignment="left" title="Comenzar" id="0aY-IQ-Zwi">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="fsL-WI-NYq" kind="push" id="joU-Y5-Z92"/>
+                                <segue destination="fsL-WI-NYq" kind="push" id="dv5-yw-a1n"/>
                             </connections>
                         </button>
                         <separator alignment="left" id="Xx1-j7-lNL"/>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="107" y="285"/>
+            <point key="canvasLocation" x="9" y="233"/>
         </scene>
-        <!--Pizza.png-->
+        <!--Vista Tamano-->
         <scene sceneID="uSJ-a0-dHA">
             <objects>
-                <controller backgroundImage="Pizza.png" id="fsL-WI-NYq" customClass="VistaTamano" customModule="PizzaWatch_WatchKit_Extension">
+                <controller id="fsL-WI-NYq" customClass="VistaTamano" customModule="PizzaWatch_WatchKit_Extension">
                     <items>
                         <label width="1" height="17.5" alignment="left" text="Tamaño" textAlignment="center" id="Bn9-rp-dtY">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
-                        <picker height="100" alignment="left" alpha="0.45000000000000001" indicatorMode="shownWhileFocused" id="kkS-a0-Yh7">
+                        <picker height="100" alignment="left" alpha="0.45000000000000001" id="kkS-a0-Yh7">
                             <connections>
                                 <action selector="pickerChanged:" destination="fsL-WI-NYq" id="roN-fz-zZv"/>
                             </connections>
                         </picker>
                         <button width="1" alignment="left" title="Continuar" id="GQC-N7-B6y">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="ButtonContinuar" destination="fsL-WI-NYq" id="GAa-Kj-XCO"/>
-                                <segue destination="A5e-kP-9El" kind="push" id="goe-5G-Sgj"/>
                             </connections>
                         </button>
                     </items>
@@ -60,96 +59,119 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="285"/>
+            <point key="canvasLocation" x="130" y="337"/>
         </scene>
-        <!--Vista Masa-->
+        <!--IdentificadorValoresMasa-->
         <scene sceneID="RCd-lf-LUM">
             <objects>
-                <controller id="A5e-kP-9El" customClass="VistaMasa" customModule="PizzaWatch_WatchKit_Extension">
+                <controller identifier="IdentificadorValoresMasa" id="A5e-kP-9El" customClass="VistaMasa" customModule="PizzaWatch_WatchKit_Extension">
                     <items>
                         <label width="1" height="17.5" alignment="left" text="Tipo de Masa" textAlignment="center" id="XcF-lH-Jmo"/>
-                        <picker height="100" alignment="left" id="gJ0-Dw-5Ya"/>
+                        <picker height="100" alignment="left" id="gJ0-Dw-5Ya">
+                            <connections>
+                                <action selector="pickerChanged:" destination="A5e-kP-9El" id="Arz-VQ-nef"/>
+                            </connections>
+                        </picker>
                         <button width="1" alignment="left" title="Continuar" id="iTL-GA-aVT">
                             <connections>
-                                <segue destination="Rf8-gj-dge" kind="push" id="eDk-A7-V0f"/>
+                                <action selector="ButtonContinuar" destination="A5e-kP-9El" id="Iio-6a-xWD"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="Boton" destination="iTL-GA-aVT" id="zpl-UE-xIZ"/>
+                        <outlet property="Etiqueta" destination="XcF-lH-Jmo" id="SUu-vj-pCH"/>
+                        <outlet property="PickerMasa" destination="gJ0-Dw-5Ya" id="wWZ-vo-1Zn"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="95" y="604"/>
+            <point key="canvasLocation" x="252" y="391"/>
         </scene>
-        <!--Interface Controller-->
+        <!--IdentificadorConfirmacion-->
         <scene sceneID="ibv-Lp-B90">
             <objects>
-                <controller id="suo-yh-C5u">
+                <controller identifier="IdentificadorConfirmacion" id="suo-yh-C5u" customClass="VistaConfirmacion" customModule="PizzaWatch_WatchKit_Extension">
                     <items>
                         <label width="1" alignment="left" text="Confirmación" textAlignment="center" id="iE0-Jc-mWL"/>
                         <separator alignment="left" id="ggT-bI-foD"/>
                         <label width="1" alignment="left" text="Label" id="NPI-JW-ClP"/>
                         <label width="1" alignment="left" text="Label" id="bR8-Ns-KZG"/>
                         <label width="1" alignment="left" text="Label" id="wws-Ll-KEo"/>
-                        <label width="1" alignment="left" text="Label" id="0d3-BC-M3L"/>
-                        <button width="1" alignment="left" title="Button" id="ome-ka-WC6">
+                        <label width="1" alignment="left" text="Label" numberOfLines="4" id="0d3-BC-M3L"/>
+                        <button width="1" alignment="left" title="Confirmar" id="ome-ka-WC6">
                             <connections>
-                                <segue destination="zox-tR-HFm" kind="push" id="djG-j1-tt8"/>
+                                <action selector="ButtonConfirmar" destination="suo-yh-C5u" id="tHS-Gv-wnP"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="Boton" destination="ome-ka-WC6" id="u3A-Ms-o1y"/>
+                        <outlet property="Etiqueta" destination="iE0-Jc-mWL" id="hpF-Mh-txb"/>
+                        <outlet property="IngredientesLabel" destination="0d3-BC-M3L" id="W9b-I3-3nU"/>
+                        <outlet property="TamanoPizzaLabel" destination="NPI-JW-ClP" id="bVz-KH-5CY"/>
+                        <outlet property="TipoMasaLabel" destination="bR8-Ns-KZG" id="S4a-da-AMt"/>
+                        <outlet property="TipoQuesoLabel" destination="wws-Ll-KEo" id="ud3-Gn-5dE"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="95" y="838"/>
+            <point key="canvasLocation" x="620" y="564.75"/>
         </scene>
-        <!--Interface Controller-->
+        <!--IdentificadorEnHorno-->
         <scene sceneID="C6s-XU-anH">
             <objects>
-                <controller id="zox-tR-HFm">
+                <controller identifier="IdentificadorEnHorno" id="zox-tR-HFm" customClass="VistaIHorno" customModule="PizzaWatch_WatchKit_Extension">
                     <items>
                         <label width="1" height="1" alignment="left" text="PIZZA EN EN HORNO" textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="2" id="tb9-N5-412"/>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="307" y="835"/>
+            <point key="canvasLocation" x="737" y="606"/>
         </scene>
-        <!--Interface Controller-->
+        <!--IdentificadorValoresQueso-->
         <scene sceneID="FHO-pP-cuS">
             <objects>
-                <controller id="Rf8-gj-dge">
+                <controller identifier="IdentificadorValoresQueso" id="Rf8-gj-dge" customClass="VistaQueso" customModule="PizzaWatch_WatchKit_Extension">
                     <items>
-                        <label width="1" height="17.5" alignment="left" text="Tipo de queso" textAlignment="center" id="kY3-dX-jjV"/>
-                        <picker height="100" alignment="left" id="1NC-k5-qry"/>
+                        <label width="1" height="23.5" alignment="left" text="Tipo de queso" textAlignment="center" id="kY3-dX-jjV"/>
+                        <picker height="100" alignment="left" id="1NC-k5-qry">
+                            <connections>
+                                <action selector="pickerChanged:" destination="Rf8-gj-dge" id="osT-aO-5oW"/>
+                            </connections>
+                        </picker>
                         <button width="1" alignment="left" title="Continuar" id="Hpf-yv-Aoi">
                             <connections>
-                                <segue destination="8ee-Lm-q11" kind="push" id="IWh-8J-B63"/>
+                                <action selector="ButtonContinuar" destination="Rf8-gj-dge" id="vJA-tS-zRH"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="Boton" destination="Hpf-yv-Aoi" id="B7P-9r-ALA"/>
+                        <outlet property="Etiqueta" destination="kY3-dX-jjV" id="GhK-UW-GhA"/>
+                        <outlet property="PickerQueso" destination="1NC-k5-qry" id="8xf-6D-mAm"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="304" y="603"/>
+            <point key="canvasLocation" x="387" y="481"/>
         </scene>
-        <!--Interface Controller-->
+        <!--IdentificadorIngredientes-->
         <scene sceneID="8DJ-LL-OcY">
             <objects>
-                <controller id="8ee-Lm-q11">
+                <controller identifier="IdentificadorIngredientes" id="8ee-Lm-q11" customClass="VistaIngredientes" customModule="PizzaWatch_WatchKit_Extension">
                     <items>
-                        <label width="1" height="17.5" alignment="left" text="Tipo de queso" textAlignment="center" id="3Mg-1n-OZG"/>
-                        <table alignment="left" id="CX7-nD-lJa">
-                            <items>
-                                <tableRow id="0vP-56-IwJ">
-                                    <group key="rootItem" width="1" alignment="left" id="qzJ-p9-eYX"/>
-                                </tableRow>
-                            </items>
-                        </table>
-                        <button width="1" alignment="left" title="Continuar" id="7JU-Hf-MFP">
+                        <label width="1" alignment="left" text="Ingredientes" textAlignment="center" id="yPS-H8-V3i"/>
+                        <button width="1" alignment="left" title="Continuar" id="p3j-oH-WVL">
                             <connections>
-                                <segue destination="suo-yh-C5u" kind="push" id="azx-gQ-Z5m"/>
+                                <action selector="ButtonContinuar" destination="8ee-Lm-q11" id="saX-ot-e1X"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="Boton" destination="p3j-oH-WVL" id="uHa-fc-x4w"/>
+                        <outlet property="Etiqueta" destination="yPS-H8-V3i" id="3il-Ua-tC5"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="500" y="600"/>
+            <point key="canvasLocation" x="502" y="535"/>
         </scene>
     </scenes>
 </document>

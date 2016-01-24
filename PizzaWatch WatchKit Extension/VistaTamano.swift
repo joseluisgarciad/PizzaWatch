@@ -11,16 +11,26 @@ import Foundation
 
 
 class VistaTamano: WKInterfaceController {
-
+    
+    var TamanoPizzaLabel:String = ""
+    
     @IBOutlet var PickerTamano: WKInterfacePicker!
     
     @IBAction func ButtonContinuar() {
+        let ValorPizza = Valores(ValorTamano: TamanoPizzaLabel,
+                                ValorMasa: "",
+                                ValorQueso: "",
+                                ValorIngredientes: "")
+        pushControllerWithName("IdentificadorValoresMasa", context: ValorPizza)
         
     }
+    
     @IBOutlet var Boton: WKInterfaceButton!
     @IBOutlet var Etiqueta: WKInterfaceLabel!
     
     var Tamanos = ["Pequeña", "Mediana", "Grande"]
+    
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -37,6 +47,7 @@ class VistaTamano: WKInterfaceController {
     @IBAction func pickerChanged(value: Int) {
         Etiqueta.setText(Tamanos[value])
         Boton.setEnabled(true)
+        TamanoPizzaLabel = Tamanos[value]
     }
 
 
