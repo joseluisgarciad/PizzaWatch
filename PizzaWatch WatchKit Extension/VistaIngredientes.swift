@@ -22,6 +22,8 @@ class VistaIngredientes: WKInterfaceController {
     var ListaIngredientes = ["jamón", "pepperoni", "pavo", "salchicha", "aceituna","cebolla","pimiento","piña","anchoa", "ternera"]
 
 
+    var DiccIngredientes:[Int: String] = [99:" "]
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -34,7 +36,6 @@ class VistaIngredientes: WKInterfaceController {
         self.PickerIngredientes.setItems(pickerItems)
         Boton.setEnabled(false)
 
-   //     Boton.setEnabled(false)
         let Valoresseleccion=context as!Valores
         TamanoPizza=(String(Valoresseleccion.tamano))
         TipoMasaLabel=(String (Valoresseleccion.masa))
@@ -49,18 +50,59 @@ class VistaIngredientes: WKInterfaceController {
     }
 
     @IBAction func BotonSeleccionar() {
-        if CantidadIngredientes == 0 {
-            CantidadIngredientes = 1
-        }
-        
-        if CantidadIngredientes > 5 {
-            Mensaje("No se pueden seleccionar mas de 5 Ingredientes")
+        if VerificarSiEstaSeleccionado(IndiceActual) == true {
+            Mensaje(ListaIngredientes[IndiceActual] + " Ya ha sido seleccionado")
         } else {
-        Ingredientes = Ingredientes + " " + ListaIngredientes[IndiceActual]
-        IngredientesLabel.setText(Ingredientes)
-        Boton.setEnabled(true)
-        CantidadIngredientes++
+            if CantidadIngredientes == 0 {
+                CantidadIngredientes = 1
+            }
+        
+            if CantidadIngredientes > 5 {
+                Mensaje("No se pueden seleccionar mas de 5 Ingredientes")
+            } else {
+                Ingredientes = Ingredientes + " " +     ListaIngredientes[IndiceActual]
+                IngredientesLabel.setText(Ingredientes)
+                DiccIngredientes[IndiceActual] = ListaIngredientes[IndiceActual]
+                Boton.setEnabled(true)
+                CantidadIngredientes++
+            }
         }
+    }
+    
+    @IBAction func BotonBorrar() {
+        for (myKey,myValue) in DiccIngredientes {
+            if myKey == IndiceActual {
+                if ActualizarListaIngredientesSeleccionados() == true {
+                  print(myValue)
+                }
+            }
+        }
+             
+    }
+    
+    func ActualizarListaIngredientesSeleccionados() -> Bool {
+        var lista:String = ""
+        DiccIngredientes.removeValueForKey(IndiceActual)
+        CantidadIngredientes=CantidadIngredientes-1
+
+        for (myKey,myValue) in DiccIngredientes {
+            lista=lista + myValue
+            print(myKey)
+            }
+        IngredientesLabel.setText(lista)
+        Ingredientes = lista
+        return true
+    }
+    
+    func VerificarSiEstaSeleccionado(Indice: Int)-> Bool {
+        
+        for (myKey,myValue) in DiccIngredientes {
+            if myKey == Indice {
+               print(myValue)
+               return true
+            }
+        }
+        return false
     }
     
     //incluir funcion que revise si se ha seleccionado un elemento que ya fué seleccionado

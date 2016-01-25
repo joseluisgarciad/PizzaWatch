@@ -11,7 +11,7 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PizzaWatch_WatchKit_App" customModuleProvider="target">
                     <items>
                         <separator alignment="left" id="AbF-yS-DvG"/>
-                        <label width="133.5" alignment="left" text="PIZZA PRONTO" textAlignment="center" id="gD6-lc-K7d">
+                        <label width="1" alignment="left" text="PIZZA PRONTO" textAlignment="center" id="gD6-lc-K7d">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                         </label>
@@ -40,7 +40,7 @@
                         <label width="1" height="17.5" alignment="left" text="Tamaño" textAlignment="center" id="Bn9-rp-dtY">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
-                        <picker height="100" alignment="left" id="kkS-a0-Yh7">
+                        <picker height="100" alignment="left" focusStyle="stack" id="kkS-a0-Yh7">
                             <connections>
                                 <action selector="pickerChanged:" destination="fsL-WI-NYq" id="roN-fz-zZv"/>
                             </connections>
@@ -133,7 +133,7 @@
                 <controller identifier="IdentificadorValoresQueso" id="Rf8-gj-dge" customClass="VistaQueso" customModule="PizzaWatch_WatchKit_Extension">
                     <items>
                         <label width="1" height="23.5" alignment="left" text="Tipo de queso" textAlignment="center" id="kY3-dX-jjV"/>
-                        <picker height="100" alignment="left" id="1NC-k5-qry">
+                        <picker height="100" alignment="left" focusStyle="stack" id="1NC-k5-qry">
                             <connections>
                                 <action selector="pickerChanged:" destination="Rf8-gj-dge" id="osT-aO-5oW"/>
                             </connections>
@@ -161,21 +161,34 @@
                         <label width="1" alignment="left" text="Ingredientes" textAlignment="center" id="yPS-H8-V3i"/>
                         <group width="1" alignment="left" id="QcJ-Zh-nwz">
                             <items>
-                                <picker height="66" alignment="left" id="EO1-nt-dIl">
+                                <picker height="66" alignment="left" focusStyle="stack" id="EO1-nt-dIl">
                                     <connections>
                                         <action selector="pickerSelected:" destination="8ee-Lm-q11" id="IF6-5u-Ijt"/>
                                     </connections>
                                 </picker>
                             </items>
                         </group>
-                        <button width="1" height="23.5" alignment="left" title="Seleccionar" id="Zcq-kq-N4H">
-                            <connections>
-                                <action selector="BotonSeleccionar" destination="8ee-Lm-q11" id="cq7-ha-JiD"/>
-                            </connections>
-                        </button>
+                        <group width="1" alignment="left" id="Sdc-CZ-HSX">
+                            <items>
+                                <button width="75" height="23.5" alignment="left" title="Seleccionar" id="Zcq-kq-N4H">
+                                    <fontDescription key="font" type="system" pointSize="11"/>
+                                    <connections>
+                                        <action selector="BotonSeleccionar" destination="8ee-Lm-q11" id="cq7-ha-JiD"/>
+                                    </connections>
+                                </button>
+                                <button width="56" height="23.5" alignment="left" title="Borrar" id="noE-9P-GZ6">
+                                    <fontDescription key="font" type="system" pointSize="11"/>
+                                    <connections>
+                                        <action selector="BotonBorrar" destination="8ee-Lm-q11" id="1Wb-lS-Sc3"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                         <group width="1" height="50.5" alignment="left" id="dJz-Wl-oqm">
                             <items>
-                                <label width="1" height="44.5" alignment="left" text="Label" numberOfLines="4" id="axb-t9-xHL"/>
+                                <label width="1" height="53.5" alignment="left" text="Label" numberOfLines="4" id="axb-t9-xHL">
+                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                </label>
                             </items>
                         </group>
                         <button width="1" height="23.5" alignment="left" title="Continuar" id="p3j-oH-WVL">
@@ -192,7 +205,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="502" y="528"/>
+            <point key="canvasLocation" x="502" y="486"/>
         </scene>
     </scenes>
 </document>
