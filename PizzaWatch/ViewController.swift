@@ -19,7 +19,14 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+//     func awakeWithContext(context: AnyObject?) {
+//        awakeWithContext(context)
+//        let Valoresseleccion=context as!Valores
+//        TamanoPizza=(String(Valoresseleccion.tamano))
+//        TipoMasa=(String (Valoresseleccion.masa))
+//        TipoQueso=(String (Valoresseleccion.queso))
+//        Ingredientes=(String (Valoresseleccion.ingredientes))
+//    }
 }
 

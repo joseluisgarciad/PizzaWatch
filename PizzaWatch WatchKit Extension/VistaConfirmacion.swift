@@ -30,6 +30,11 @@ class VistaConfirmacion: WKInterfaceController {
         TipoMasa=(String (Valoresseleccion.masa))
         TipoQueso=(String (Valoresseleccion.queso))
         Ingredientes=(String (Valoresseleccion.ingredientes))
+        
+        TamanoPizzaLabel.setText(TamanoPizza)
+        TipoMasaLabel.setText(TipoMasa)
+        TipoQuesoLabel.setText(TipoQueso)
+        IngredientesLabel.setText(Ingredientes)
         // Configure interface objects here.
     }
 

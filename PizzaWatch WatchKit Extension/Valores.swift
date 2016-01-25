@@ -8,7 +8,7 @@
 
 import WatchKit
 
-class Valores: NSObject {
+ class Valores: NSObject {
     var tamano:String = ""
     var masa:String = ""
     var queso:String = ""
